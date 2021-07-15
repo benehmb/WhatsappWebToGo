@@ -581,6 +581,11 @@ public class WebviewActivity extends AppCompatActivity implements NavigationView
     }
 
     public void setContentSize(final WebView mWebView){
+        //Explanation: You can run Javascript-Code as if it were a Link. So we are executing it by loading a link
+        //The JS-Part just adds some predefined CSS-Code into the <head>
+        //The CSS-part searches for the 4th child-div inside any element containing the `two`-class, which is only our chat
+        //    then it changes some attributes of the flexbox to make it grow bigger than allowed, and sets it to 100vmin, which is exactly the size of the screen
+
         //ToDo: Scroll to the right. See `focusChatTextInput(e)-Method of bootstrap_qr.e002978cf4688a3eaf75.js:formatted  line 67087
         mWebView.loadUrl("javascript:(function(){" +
                 "  try { " +
